@@ -16,7 +16,7 @@ const HamburgerMenu = () => {
   const svgRef = useRef<SVGSVGElement>(null)
   const svgRef2 = useRef<SVGSVGElement>(null)
   const [isOpen, setIsOpen] = useState(false)
-  const splitRef = useRef<gsap.core.Tween | null>(null)
+  const splitRef = useRef<gsap.core.Timeline | null>(null)
 
   // GSAP animation setup
   useGSAP(() => {
@@ -151,14 +151,18 @@ const HamburgerMenu = () => {
     })
 
     // Store timeline in ref so we can control it
-    svgRef.current.timeline = tl
-    svgRef.current.tlcontOpen = tlcontOpen
-    svgRef.current.tlcontClose = tlcontClose
-    svgRef.current.hideMenu = hideMenu
-    svgRef.current.showMenu = showMenu
-    svgRef.current.timeline2 = tl1
-    svgRef2.current.timeline = tl2
-    svgRef2.current.timeline2 = tl22
+    if (svgRef.current) {
+      svgRef.current.timeline = tl
+      svgRef.current.tlcontOpen = tlcontOpen
+      svgRef.current.tlcontClose = tlcontClose
+      svgRef.current.hideMenu = hideMenu
+      svgRef.current.showMenu = showMenu
+      svgRef.current.timeline2 = tl1
+    }
+    if (svgRef2.current) {
+      svgRef2.current.timeline = tl2
+      svgRef2.current.timeline2 = tl22
+    }
 
     // Cleanup: Revert SplitText on component unmount
     return () => {

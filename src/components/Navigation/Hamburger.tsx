@@ -16,7 +16,7 @@ const HamburgerMenu = () => {
   const svgRef = useRef<SVGSVGElement>(null)
   const svgRef2 = useRef<SVGSVGElement>(null)
   const [isOpen, setIsOpen] = useState(false)
-  const splitRef = useRef<gsap.core.Timeline | null>(null)
+  const splitRef = useRef<gsap.core.Tween  | null>(null)
 
   // GSAP animation setup
   useGSAP(() => {

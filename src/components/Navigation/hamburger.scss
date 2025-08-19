@@ -1,0 +1,26 @@
+@import '~@payloadcms/ui/scss';
+@tailwind components;
+
+.hamMenu {
+  &_Large {
+    @apply text-3xl;
+  }
+  &_tiny {
+    @apply text-xs;
+  }
+
+  &.active {
+    // styles for active link
+    font-weight: bold;
+    color: #009B4A;
+
+    span {
+      // if you need to style the span differently when active
+    }
+  }
+
+  @apply text-2xl text-[#0e3934] hover:text-[#009B4A] text-2xl font-semibold;
+}
+
+
+.line { overflow: hidden; }

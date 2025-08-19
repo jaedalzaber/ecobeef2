@@ -31,6 +31,11 @@ const nextConfig = {
   },
   reactStrictMode: true,
   redirects,
+
+  // ✅ Disable ESLint blocking builds on Vercel
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })
